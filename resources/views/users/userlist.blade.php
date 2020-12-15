@@ -4,7 +4,8 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">User Table </h6>
+
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -12,9 +13,9 @@
                     <thead>
                     <tr>
                         <th>User Profile</th>
-                        <th>Edit</th>
-
-
+                        <th>
+                            <a href="/users/create" class="btn btn-outline-dark" role="button" >Create New User</a>
+                        </th>
                     </tr>
                     </thead>
 
@@ -31,7 +32,20 @@
                        </th>
                        <th>
                            <a href="/profiles/{{$user->id}}/edit" class="btn btn-primary" role="button">edit</a>
+
                        </th>
+                        <th>
+
+
+                            <form action="{{route('users.destroy', $user->id)}}" method="post" >
+                                @csrf
+                                @method("DELETE")
+
+
+                                <button type="submit" data-id="{{$user->id}}" id="deleteBtn" class="btn btn-danger btn-fill">Delete </button>
+                            </form>
+
+                        </th>
 
                    </tr>
                     @endforeach

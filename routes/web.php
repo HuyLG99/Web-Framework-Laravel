@@ -25,7 +25,7 @@ Route::get('/users', function (){
     $users = DB::table('users')->get();//lay toan bo dữ liệu từ bảng user, nhớ bổ sung namespace cho DB,
     //tạm thời chưa học nên lấy dữ liệu tại file web.php nhưng sau này viết tại controller
     //var_dump($users);
-    return view('users.userlist',  ['users' => $users]);
+    return view('users.index',  ['users' => $users]);
 });
 
 
@@ -39,15 +39,22 @@ Route::get('checkage/{age?}', function ($age) {
 })->middleware(\App\Http\Middleware\CheckAge::class);
 
 Route::resource('users', UserController::class);
+Route::get('users/create', function () {
+    return view('users.create');
+});
 
 
 Route::resource('profiles', ProfileController::class);
 
 
-Route::get('/create', function () {
+Route::get('profiles/create', function () {
     return view('profiles.create');
 });
 
 Route::resource('products', ProductController::class);
 
 
+
+Route::get('products/create', function () {
+    return view('product.create');
+});

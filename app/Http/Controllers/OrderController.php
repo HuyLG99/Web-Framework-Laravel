@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class OderCartController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class OderCartController extends Controller
      */
     public function index()
     {
-        //
+        $order = DB::table('orders')->get();
+        return View('orders.index',['orders'=>$order]);
     }
 
     /**

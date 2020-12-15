@@ -18,5 +18,6 @@
             </div>
         </div>
         <input type="submit" class="btn btn-primary" value="Update">
+        <a href="{{url('/users')->previous()}}" class="btn btn-primary">Back</a>
     </form>
 @endsection

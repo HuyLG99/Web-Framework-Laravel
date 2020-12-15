@@ -37,7 +37,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = DB::table('products');
+        $product->product_id = $request->input('product_id');
+        $product->name_pro = $request->input('name_pro');
+        $product->kind_pro = $request->input('kind_pro');
+        $product->qty_pro= $request->input('qty_pro');
+        $product->price = $request->input('price');
+
+
+
+        $affected = DB::table('products')->insert(
+            [
+                "product_id" => $product->product_id,
+                "name_pro" => $product->name_pro,
+                "kind_pro" => $product->kind_pro,
+                "qty_pro" => $product->qty_pro,
+                "price" => $product->price,
+
+            ]
+        );
+        return redirect('/products');
     }
 
     /**

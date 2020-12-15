@@ -16,7 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $users = DB::table('users')->get();
-        return View('users.userlist',['users'=>$users]);
+        return View('users.index',['users'=>$users]);
     }
 
     /**
@@ -38,14 +38,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = DB::table('users');
-        $user->id = ($user->count()-1);
-        $user->name = $request->input('name');
+//        $user->id = ($user->count()-1);
         $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->name = $request->input('name');
+
+
         $affected = DB::table('users')->insert(
             [
-                "id" => ($user->count()+1),
-                "name" => $user->name,
+//                "id" => ($user->count()+1),
                 "email" => $user->email,
+                "password" => $user->password,
+                "name" => $user->name,
+
             ]
         );
         return redirect('/users');
@@ -94,6 +99,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product =  DB::table('users')->where('id','=',$id)->delete();
+//        if(!$product)
+//        {
+//
+//        }
+        return redirect()->route('users.index');
     }
 }
