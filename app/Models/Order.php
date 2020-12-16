@@ -11,4 +11,13 @@ class Order extends Model
     protected $fillable = [
         'user_id','status'
     ];
+//    public function user() {
+//        return $this->belongsTo('App\User');
+//        //xác định quan hệ có thể đảo ngược nhau  1 article có thể truy cập đến user,
+//        //và ngược lại 1 user cũng có thể truy cập lấy thông tin 1 article
+//    }
+//
+//    public function products() {
+//        return $this->belongsToMany('Product');
+//    }
 }

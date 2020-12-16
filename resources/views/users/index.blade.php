@@ -10,12 +10,12 @@
 {{--            </li>--}}
 {{--        @endforeach--}}
 {{--    </ul>--}}
-
+<x-alert type="success"  message="Not found"/>
 <div class="row">
     <div class="col-lg-12">
         <div class="card mb-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Liệt kê danh mục</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Danh sách user</h6>
             </div>
             <div class="p-3">
                 <div class="row mx-md-n5">
@@ -48,7 +48,7 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
+
                         <th></th>
                         <th></th>
                         <th></th>
@@ -59,7 +59,7 @@
                         <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Password</th>
+
                         <th></th>
                         <th></th>
                         <th></th>
@@ -71,14 +71,16 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>
-                                <a onclick="checkAvaProfile({{ $user->id }})">
+                                <a ({{ $user->id }})">
                                     {{ $user->name }}
                                 </a>
+
+{{--                                <a href="/profiles/{{$user->id}}">{{$user->name}}</a>--}}
                             </td>
                             <td>{{ $user->email }}</td>
-                            <td>
-                                <input id="in{{$user->id}}" type="password" readonly value="{{ $user->password }}">
-                            </td>
+{{--                            <td>--}}
+{{--                                <input id="in{{$user->id}}" type="password" readonly value="{{ $user->password }}">--}}
+{{--                            </td>--}}
                             <td>
                                 <a href="profiles/{{ $user->id }}/edit" class="btn btn-success btn-icon btn-sm"
                                    role="button">
@@ -88,7 +90,10 @@
                                     Edit
                                 </a>
                             </td>
+                            <td>
+                                <a class="btn btn-success btn-fill" href="/profiles/{{$user->id}}">View Profile</a>
 
+                            </td>
                             <td>
                                 <form class="user" action="users/{{ $user->id }}" method="POST">
                                     @csrf
@@ -103,13 +108,13 @@
                                     </button>
                                 </form>
                             </td>
-                            <td>
-                                <button id="{{$user->id}}" onclick="ShowPass(this)" class="btn btn-light btn-icon btn-sm">
-                                            <span class="icon">
-                                                <i class="fas fa-eye" aria-hidden="true"></i>
-                                            </span>
-                                </button>
-                            </td>
+{{--                            <td>--}}
+{{--                                <button id="{{$user->id}}" onclick="ShowPass(this)" class="btn btn-light btn-icon btn-sm">--}}
+{{--                                            <span class="icon">--}}
+{{--                                                <i class="fas fa-eye" aria-hidden="true"></i>--}}
+{{--                                            </span>--}}
+{{--                                </button>--}}
+{{--                            </td>--}}
                         </tr>
                         <!-- Delete Modal Logout -->
 
@@ -120,17 +125,18 @@
         </div>
     </div>
 </div>
-<script>
-    function ShowPass(haha){
-        let a = haha.id;
-        let b = document.getElementById('in'+ a);
-        if(b.type == "password"){
-            b.type = "text";
-        }else{
-            b.type = "password";
-        }
+{{--<script>--}}
+{{--    function ShowPass(haha){--}}
+{{--        let a = haha.id;--}}
+{{--        let b = document.getElementById('in'+ a);--}}
+{{--        if(b.type == "password"){--}}
+{{--            b.type = "text";--}}
+{{--        }else{--}}
+{{--            b.type = "password";--}}
+{{--        }--}}
 
-    }
+{{--    }--}}
+{{--</script>--}}
 
-</script>
+
 @endsection

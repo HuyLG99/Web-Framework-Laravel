@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,3 +59,6 @@ Route::resource('products', ProductController::class);
 Route::get('products/create', function () {
     return view('product.create');
 });
+
+
+Route::resource('orders', OrderController::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,8 +15,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $order = DB::table('orders')->get();
-        return View('orders.index',['orders'=>$order]);
+//        $order = DB::table('orders')->get();
+//        return View('orders.index',['orders'=>$order]);
+        $orders = Order::all();
+        return View('orders.index',['orders' => $orders]);
     }
 
     /**
@@ -81,6 +84,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+//        $rs = DB::table('order_details')->where('', )->where('', )->delete();
+//        return redirect()->route('order.show', $);
     }
 }
