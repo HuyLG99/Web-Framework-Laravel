@@ -10,7 +10,7 @@
 {{--            </li>--}}
 {{--        @endforeach--}}
 {{--    </ul>--}}
-<x-alert type="success"  message="Not found"/>
+
 <div class="row">
     <div class="col-lg-12">
         <div class="card mb-4">
@@ -26,19 +26,22 @@
                                         <i class="fas fa-user-plus"></i>
                                     </span>
                                 <span class="text">Create user</span>
+
                             </a>
+
                         </div>
+
                     </div>
-                    <div class="col px-md-5">
-                        <div class="p-3 border bg-light">
-                            <a href="profiles/create" class="btn btn-info btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-user-plus"></i>
-                                    </span>
-                                <span class="text">Add profile</span>
-                            </a>
-                        </div>
-                    </div>
+{{--                    <div class="col px-md-5">--}}
+{{--                        <div class="p-3 border bg-light">--}}
+{{--                            <a href="profiles/create" class="btn btn-info btn-icon-split">--}}
+{{--                                    <span class="icon text-white-50">--}}
+{{--                                        <i class="fas fa-user-plus"></i>--}}
+{{--                                    </span>--}}
+{{--                                <span class="text">Add profile</span>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
             <div class="table-responsive p-3">
@@ -91,7 +94,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a class="btn btn-success btn-fill" href="/profiles/{{$user->id}}">View Profile</a>
+                                <a class="btn btn-primary btn-fill" href="/profiles/{{$user->id}}">View Profile</a>
 
                             </td>
                             <td>
@@ -108,6 +111,7 @@
                                     </button>
                                 </form>
                             </td>
+
 {{--                            <td>--}}
 {{--                                <button id="{{$user->id}}" onclick="ShowPass(this)" class="btn btn-light btn-icon btn-sm">--}}
 {{--                                            <span class="icon">--}}
@@ -124,19 +128,9 @@
             </div>
         </div>
     </div>
-</div>
-{{--<script>--}}
-{{--    function ShowPass(haha){--}}
-{{--        let a = haha.id;--}}
-{{--        let b = document.getElementById('in'+ a);--}}
-{{--        if(b.type == "password"){--}}
-{{--            b.type = "text";--}}
-{{--        }else{--}}
-{{--            b.type = "password";--}}
-{{--        }--}}
 
-{{--    }--}}
-{{--</script>--}}
+</div>
+
 
 
 @endsection

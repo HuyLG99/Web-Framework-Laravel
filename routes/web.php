@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDetailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,3 +63,4 @@ Route::get('products/create', function () {
 
 
 Route::resource('orders', OrderController::class);
+Route::resource('orders_detail', OrderDetailController::class);

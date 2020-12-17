@@ -2,20 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Article;
-use App\Models\Profile;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
-class ProfileFactory extends Factory
+class OrderFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Profile::class;
+    protected $model = Order::class;
 
     /**
      * Define the model's default state.
@@ -26,10 +24,7 @@ class ProfileFactory extends Factory
     {
         return [
             'user_id'=> User::all()->random()->id,
-            'full_name' => $this->faker->name,
-            'address' => $this->faker->unique()->safeEmail,
-            'birthday' => now(),
-            'avatar' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi' // password
+            'status' => $this->faker->name,
         ];
     }
 }

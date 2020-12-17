@@ -5,6 +5,16 @@
 @endsection
 @section('content')
 
+    @if(session()->has('messages'))
+        @php
+            alert()->success('SuccessAlert','Lorem ipsum dolor sit amet.')->persistent(true);
+        @endphp
+    @else
+        <div></div>
+    @endif
+{{--    @php--}}
+{{--    dd(session()->has('messages'))--}}
+{{--    @endphp--}}
     <div class="row">
         <div class="col-lg-12">
             <div class="card mb-4">

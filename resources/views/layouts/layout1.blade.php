@@ -8,12 +8,14 @@
 </head>
 
 <body id="page-top">
+@include('sweetalert::alert')
 
 <!-- Page Wrapper -->
 <div id="wrapper">
 
     <!-- Sidebar -->
-   @include('includes.sidebar')
+
+@include('includes.sidebar')
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -28,6 +30,7 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
+
             @yield('content')
 
             <!-- /.container-fluid -->

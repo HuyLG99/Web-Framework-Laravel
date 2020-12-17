@@ -38,7 +38,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = DB::table('products');
-        $product->product_id = $request->input('product_id');
+
         $product->name_pro = $request->input('name_pro');
         $product->kind_pro = $request->input('kind_pro');
         $product->qty_pro= $request->input('qty_pro');
@@ -48,7 +48,7 @@ class ProductController extends Controller
 
         $affected = DB::table('products')->insert(
             [
-                "product_id" => $product->product_id,
+
                 "name_pro" => $product->name_pro,
                 "kind_pro" => $product->kind_pro,
                 "qty_pro" => $product->qty_pro,
@@ -100,25 +100,40 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $product = DB::table('products')->find($id);
-        $product->product_id= $request->input('product_id');
+        $product = Product::find($id);
+//        $product = DB::table('products')->find($id);
+
         $product->name_pro = $request->input('name_pro');
         $product->kind_pro = $request->input('kind_pro');
         $product->qty_pro = $request->input('qty_pro');
         $product->price = $request->input('price');
 
-        $affected = DB::table('products')
-            ->where('id', $id)
-            ->update([
-                'name_pro' =>  $product->name_pro,
-                'kind_pro' =>  $product->kind_pro,
 
-                'price' =>  $product->price
-
-
-            ]);
+        if($request->file("avatar"))
+        {
+            $filename = $request->file('avatar')->getClientOriginalName();
+            $filepath = $request->file('avatar')->storeAs('uploads/',$filename, 'public');
+            $product->pictureURL = '/storage/' . $filepath;
+        }
+        else
+        {
+            $product->avatar = $request->input("avatar");
+        }
+        $product->save();
         return redirect('/products');
+//        $affected = DB::table('products')
+//            ->where('id', $id)
+//            ->update([
+//                'name_pro' =>  $product->name_pro,
+//                'kind_pro' =>  $product->kind_pro,
+//
+//                'price' =>  $product->price
+//
+//
+//            ]);
+//        return redirect('/products')->with('messages',"Cap nhanh cong");
     }
+
 
     /**
      * Remove the specified resource from storage.

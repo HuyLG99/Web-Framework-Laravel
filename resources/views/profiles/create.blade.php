@@ -18,6 +18,6 @@
             <input type="text" name="avatar" class="form-control form-control-user" id="avatar" placeholder="Avartar" >
         </div>
         <input type="submit" class="btn btn-primary" value="Create">
-        <a href="{{url()->previous()}}" class="btn btn-primary">Back</a>
+        <a href="{{url()->previous('/')}}" class="btn btn-primary">Back</a>
     </form>
 @endsection

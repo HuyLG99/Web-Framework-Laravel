@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order_Detail;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class OrderDetailController extends Controller
 {
     /**
@@ -43,8 +44,12 @@ class OrderDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) // CART
     {
+        $cart = DB::table("order__details")
+            ->join("products","products.id","=","order__details.product_id")
+            ->where("order__details.order_id",'=',$id)->get();
+        dd($cart);
         //
     }
 

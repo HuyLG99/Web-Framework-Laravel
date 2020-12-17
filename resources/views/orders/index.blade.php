@@ -55,7 +55,7 @@
                                             {{ $order->updated_at }}
                                         </td>
                                         <td>
-                                            <a  href="/order/{{$order->id}}" class="btn btn-info btn-fill">View</a>
+                                            <a  href="/order_detail/{{$order->id}}" class="btn btn-info btn-fill">View</a>
                                         </td>
                                         <td>
                                             <button  data-id="{{$order->id}}" id="deleteBtn" class="btn btn-danger btn-fill">Detele</button>
