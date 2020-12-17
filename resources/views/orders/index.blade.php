@@ -1,4 +1,4 @@
-@extends('layouts.layout1')
+@extends('layouts.app')
 @section('content')
     {{-- <ul>
         @foreach ($users as $user)
@@ -49,13 +49,13 @@
                                             {{ $order->status }}
                                         </td>
                                         <td>
-                                            {{ $order->created_at }}
+                                            {{ $order->day_create }}
                                         </td>
+{{--                                        <td>--}}
+{{--                                            {{ $order->updated_at }}--}}
+{{--                                        </td>--}}
                                         <td>
-                                            {{ $order->updated_at }}
-                                        </td>
-                                        <td>
-                                            <a  href="/order_detail/{{$order->id}}" class="btn btn-info btn-fill">View</a>
+                                            <a  href="/orders_detail/{{$order->id}}" class="btn btn-info btn-fill">View</a>
                                         </td>
                                         <td>
                                             <button  data-id="{{$order->id}}" id="deleteBtn" class="btn btn-danger btn-fill">Detele</button>

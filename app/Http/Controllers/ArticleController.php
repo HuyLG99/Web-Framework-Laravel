@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Article;
 
-use App\Models\Order_Detail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-class OrderDetailController extends Controller
+
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::all();
+        return View('article.list',['articles' => $articles]);
     }
 
     /**
@@ -44,16 +45,9 @@ class OrderDetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) // CART
+    public function show($id)
     {
-        $cart = DB::table("order__details")
-            ->join("products","products.id","=","order__details.product_id")
-            ->where("order__details.order_id",'=',$id)->get();
-        $order = DB::table("orders")
-            ->where("id",'=',$id)->first();
-
-        return  view("order_details.index",['order_detail'=>$cart,'orders'=>$order]);
-
+        //
     }
 
     /**

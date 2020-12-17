@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +66,9 @@ Route::get('products/create', function () {
 
 Route::resource('orders', OrderController::class);
 Route::resource('orders_detail', OrderDetailController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('articles', ArticleController::class);

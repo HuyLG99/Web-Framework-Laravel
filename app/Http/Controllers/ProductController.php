@@ -112,14 +112,18 @@ class ProductController extends Controller
         if($request->file("avatar"))
         {
             $filename = $request->file('avatar')->getClientOriginalName();
-            $filepath = $request->file('avatar')->storeAs('uploads/',$filename, 'public');
-            $product->pictureURL = '/storage/' . $filepath;
+            $filepath = $request->file('avatar')->storeAs('uploads',$filename, 'public');
+            $product->avatar = '/storage/' . $filepath;
+
         }
         else
         {
             $product->avatar = $request->input("avatar");
         }
+
+
         $product->save();
+
         return redirect('/products');
 //        $affected = DB::table('products')
 //            ->where('id', $id)

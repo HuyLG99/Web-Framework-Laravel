@@ -27,9 +27,8 @@ class OrderDetailFactory extends Factory
         return [
             'order_id'=> Order::all()->random()->id,
             'product_id'=> Product::all()->random()->id,
-            'qty_order' => $this->faker->name,
-            'price' => $this->faker->numberBetween(0,100),
-            'total_price' => $this->faker->numberBetween(0,100000),
+            'qty_order' => $this->faker->numberBetween(0,100),
+            'total_price' => $this->faker->numberBetween(1000,100000)
 
 
         ];

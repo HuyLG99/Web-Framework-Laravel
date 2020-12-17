@@ -1,5 +1,14 @@
 @extends('layouts.layout1')
-
+@section('js')
+    <script>
+        $('#avatar').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+    </script>
+@endsection('js')
 @section('content')
 
 
@@ -65,24 +74,24 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <label for="exampleInputEmail1">Product Price</label>
                         <input type="number" class="form-control form-control-user" name="price"
-                               id="price" placeholder="Price" value="{{ $product->price }}">
+                               id="price" placeholder="Product Price" value="{{ $product->price }}">
                     </div>
                 </div>
-                {{-- <div class="form-group">
-                    <label for="exampleInputPassword1">Avatar</label>
-                    <div class="custom-file">
-                        <input type="file" value="{{ $profile->avatar }}" name="profile_avatar"
-                            class="custom-file-input" id="customFile">
-                            <br><br>
-                            <div class="card col-sm-4">
-                                <img class="card-img-top"
-                                    src="{{ URL::to('public/uploads/users/' . $profile->avatar) }}"
-                                    alt="Card image cap">
-                            </div>
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Avatar</label><br>
+
+                    <div class="card col-sm-4">
+                        <img class="card-img-top" src="{{URL::to($product->avatar)}}"/>
                     </div>
-                </div> --}}
-                <button type="submit" class="btn btn-primary"> Update Product
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="custom-file" >
+                            <input type="file" class="custom-file-input " id="avatar" name="avatar" >
+                            <label for="avatar" class="custom-file-label">{{$product->avatar}}</label>
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary"> Cập nhật user
                 </button>
                 {{-- <input type="submit" class="btn btn-primary" value="Update">
                 --}}

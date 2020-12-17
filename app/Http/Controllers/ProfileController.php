@@ -42,10 +42,10 @@ class ProfileController extends Controller
     {
         if ($request->file()) {
             $profile = new Profile();
-            $profile->user_id = $request->input('profile_user_id');
-            $profile->full_name = $request->input('profile_full_name');
-            $profile->address = $request->input('profile_address');
-            $profile->birthday = $request->input('profile_birthday');
+            $profile->user_id = $request->input('user_id');
+            $profile->full_name = $request->input('full_name');
+            $profile->address = $request->input('address');
+            $profile->birthday = $request->input('birthday');
 
             $fileName = $request->file('avatar')->getClientOriginalName();
             $filePath = $request->file('avatar')->storeAs('uploads', $fileName, 'public');
@@ -94,7 +94,7 @@ class ProfileController extends Controller
             // Session::put('message','Thêm profile thành công');
             return view('profiles.show', ['profile' => $profile],['user' => $user]);
         } else if ($profile = DB::table('profiles')) {
-            Session::put('message', 'Thêm profile thành công');
+//            Session::put('message', 'Thêm profile thành công');
             return View('profiles.create');
         }
 

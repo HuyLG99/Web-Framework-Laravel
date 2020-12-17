@@ -19,8 +19,9 @@ class CreateProductsTable extends Migration
 
             $table->string('name_pro',100);
             $table->text('kind_pro');
-            $table->text('qty_pro');
-            $table->text('price');
+            $table->bigInteger('qty_pro');
+            $table->bigInteger('price');
+            $table->string('avatar')->nullable();
             //ket thuc
             $table->timestamps();
         });

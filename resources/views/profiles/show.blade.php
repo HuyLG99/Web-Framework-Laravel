@@ -10,25 +10,25 @@
 
 @section('content')
 
-{{--    @if ($profile ?? '' !=null)--}}
-{{--        @if ($message = Session::get('success'))--}}
-{{--            <div class="alert alert-success"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->--}}
-{{--                <li>{{ $message }}  </li>--}}
-{{--                @if ($message = Session::get('file'))--}}
-{{--                    <li>{{ $message }}  </li>--}}
-{{--                @endif--}}
-{{--            </div>--}}
-{{--        @endif--}}
-{{--        @if (count($errors) > 0)--}}
-{{--            <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->--}}
-{{--                <li>{{ $message }}  </li>--}}
-{{--                <ul>--}}
-{{--                    @foreach ($errors->all() as $error)--}}
-{{--                        <li>{{ $error }}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        @endif--}}
+    @if ($profile ?? '' !=null)
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->
+                <li>{{ $message }}  </li>
+                @if ($message = Session::get('file'))
+                    <li>{{ $message }}  </li>
+                @endif
+            </div>
+        @endif
+        @if (count($errors) > 0)
+            <div class="alert alert-danger"> <!-- tự chuyển sang sử dụng alert component đã tạo các tuần trước -->
+                <li>{{ $message }}  </li>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Profile - {{ $profile->full_name }}</h1>
             <ol class="breadcrumb">

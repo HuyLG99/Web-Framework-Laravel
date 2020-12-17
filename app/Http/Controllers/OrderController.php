@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Table;
 
 class OrderController extends Controller
 {
@@ -73,7 +74,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        DB::table('orders')->where("id",'=',$id)->update([
+            'status'=> $request->input('status')
+
+        ]);
+        return redirect('orders_detail/'.$id);
     }
 
     /**

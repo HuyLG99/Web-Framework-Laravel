@@ -10,7 +10,7 @@ class Order_Detail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'order_id','product_id','qty_order','price','total_price'
+        'order_id','product_id','qty_order','total_price'
     ];
     protected static function newFactory()
     {

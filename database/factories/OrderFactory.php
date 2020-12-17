@@ -24,7 +24,8 @@ class OrderFactory extends Factory
     {
         return [
             'user_id'=> User::all()->random()->id,
-            'status' => $this->faker->name,
+            'status' => $this->faker->numberBetween($min = 1, $max = 3) ,
+            'day_create' => $this->faker->dateTime($max = 'now', $timezone = null)
         ];
     }
 }

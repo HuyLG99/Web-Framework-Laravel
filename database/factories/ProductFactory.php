@@ -27,8 +27,9 @@ class ProductFactory extends Factory
         return [
             'name_pro' => $this->faker->name,
             'kind_pro' =>  $this->faker->name,
-            'qty_pro' => $this->faker->name,
-            'price' => $this->faker->name,
+            'qty_pro' => $this->faker->numberBetween($min = 10, $max = 90),
+            'price' => $this->faker->randomFloat($nbMaxDecimals = NULL, $min = 0, $max = 1000) ,
+            'avatar' => 'https://picsum.photos/id/'.$this->faker->numberBetween($min = 1, $max = 1000).'300/300' // password
         ];
     }
 }

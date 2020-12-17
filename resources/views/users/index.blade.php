@@ -32,16 +32,16 @@
                         </div>
 
                     </div>
-{{--                    <div class="col px-md-5">--}}
-{{--                        <div class="p-3 border bg-light">--}}
-{{--                            <a href="profiles/create" class="btn btn-info btn-icon-split">--}}
-{{--                                    <span class="icon text-white-50">--}}
-{{--                                        <i class="fas fa-user-plus"></i>--}}
-{{--                                    </span>--}}
-{{--                                <span class="text">Add profile</span>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="col px-md-5">
+                        <div class="p-3 border bg-light">
+                            <a href="profiles/create" class="btn btn-info btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-user-plus"></i>
+                                    </span>
+                                <span class="text">Add profile</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive p-3">
